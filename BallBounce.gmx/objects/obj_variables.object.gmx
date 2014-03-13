@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,16 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch(obj_variables.difficulty)
-{
-    case "easy":
-    for(i = 0; i &lt; 8; i++)
-    {
-        instance_create(32*i,32,obj_ball);
-        
-    }
-    break;
-}
+            <string>difficulty = "easy";
 </string>
           </argument>
         </arguments>

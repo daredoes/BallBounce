@@ -14,6 +14,8 @@
     <object>objects\obj_main_menu</object>
     <object>objects\obj_game</object>
     <object>objects\obj_ball</object>
+    <object>objects\obj_dev</object>
+    <object>objects\obj_variables</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main_menu</room>
