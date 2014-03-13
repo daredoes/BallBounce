@@ -25,14 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch(obj_variables.difficulty)
+            <string>amountOfBalls = 8;
+switch(obj_variables.difficulty)
 {
     case "easy":
-    for(i = 0; i &lt; 8; i++)
-    {
-        instance_create(16*(i+1) + (sprite_get_width(spr_ball)*.25*i),32,obj_ball);
-        
-    }
+    create_balls(8);
+    break;
+    case "medium":
+    create_balls(12);
+    break;
+    case "hard":
+    create_balls(16);
     break;
 }
 </string>

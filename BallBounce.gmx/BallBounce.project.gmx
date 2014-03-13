@@ -10,6 +10,9 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\create_balls.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_main_menu</object>
     <object>objects\obj_game</object>
