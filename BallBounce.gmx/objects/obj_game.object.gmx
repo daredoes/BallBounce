@@ -30,7 +30,7 @@
     case "easy":
     for(i = 0; i &lt; 8; i++)
     {
-        instance_create(32*i,32,obj_ball);
+        instance_create(16*(i+1) + (sprite_get_width(spr_ball)*.25*i),32,obj_ball);
         
     }
     break;
