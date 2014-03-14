@@ -29,7 +29,7 @@
 switch(obj_variables.difficulty)
 {
     case "easy":
-    create_balls(8);
+    create_balls(16);
     break;
     case "medium":
     create_balls(12);
@@ -37,6 +37,73 @@ switch(obj_variables.difficulty)
     case "hard":
     create_balls(16);
     break;
+}
+
+allGreen = false;
+touchable = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>for(i = 0; i &lt; array_length_1d(ballsInPlay); i++)
+{
+    ballsInPlay[i].speed = 0;
+    touchable = true;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>for(i = 0; i &lt; array_length_1d(ballsInPlay);i++)
+{
+    if(ballsInPlay[i].isBlue)
+    {
+        break;
+    }
+    if(i = array_length_1d(ballsInPlay)-1)
+    {
+        allGreen = true;
+    }
+}
+if(allGreen)
+{
+    alarm[0] = 30;
 }
 </string>
           </argument>
