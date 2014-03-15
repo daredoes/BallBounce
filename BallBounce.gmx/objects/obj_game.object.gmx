@@ -63,11 +63,15 @@ touchable = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(i = 0; i &lt; array_length_1d(ballsInPlay); i++)
+            <string>for(i = 0; i &lt; instance_number(obj_ball); i++)
 {
-    ballsInPlay[i].speed = 0;
-    touchable = true;
+    a = instance_find(obj_ball,i)
+    a.speed = 0;
+    a.vspeed = 0;
+    a.hspeed = 0;
+    
 }
+touchable = true;
 </string>
           </argument>
         </arguments>
@@ -101,7 +105,7 @@ touchable = false;
         allGreen = true;
     }
 }
-if(allGreen)
+if(blueBalls = 0)
 {
     alarm[0] = 30;
 }

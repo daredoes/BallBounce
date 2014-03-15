@@ -127,6 +127,7 @@ if(other.isBlue &amp;&amp; !isBlue)
 {
     other.isBlue = false;
     other.wasBlue = true;
+    obj_game.blueBalls--;
 }
 </string>
           </argument>

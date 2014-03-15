@@ -1,5 +1,6 @@
 ///create_balls(amount);
 amountOfBalls = argument0;
+blueBalls = amountOfBalls/2;
 for(i = 0; i < amountOfBalls; i++)
     {
         ballsInPlay[i] = instance_create(room_width/(amountOfBalls*2)*(i+1) + (sprite_get_width(spr_ball)*.25*i),32,obj_ball);
