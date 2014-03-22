@@ -29,9 +29,34 @@
 direction = round(random(360));
 isBlue = false;
 wasBlue = false;
-speed = 5;
+//speed = 5;
 image_xscale = .25;
 image_yscale = .25;
+stop = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>speed = 0;
+obj_game.gameTime = true;
 </string>
           </argument>
         </arguments>
@@ -54,25 +79,42 @@ image_yscale = .25;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(x &lt;= 0 || x &gt; room_width-sprite_width)
+            <string>if(x &lt;= 0 || x &gt; room_width-sprite_width-1)
 {
     hspeed *= -1;
     //direction += 90;
 }
-if(y &lt;= 0 || y &gt; room_height-sprite_height)
+if(y &lt;= 0 || y &gt; room_height-sprite_height-1)
 {
     vspeed *= -1;
     //direction += 90;
 }
+if(stop &amp;&amp; obj_game.touchable = false)
+{
+    speed = 0;
+}
+if(!stop &amp;&amp; obj_game.touchable = false)
+{
+    speed = 5;
+}
 if(obj_game.touchable = true)
 {
-    if(mouse_check_button_pressed(mb_left) &amp;&amp; instance_position(mouse_x,mouse_y,obj_ball)==id)
+    if(stop = false)
     {
-        if(wasBlue)
+        stop = true;
+        alarm[0] = 90;
+    }
+    if(obj_game.gameTime)
+    {
+        if(mouse_check_button_pressed(mb_left) &amp;&amp; instance_position(mouse_x,mouse_y,obj_ball)==id)
         {
-            score += 100;
-            isBlue = true;
-            wasBlue = false;
+            if(wasBlue)
+            {
+                score += 100;
+                isBlue = true;
+                wasBlue = false;
+                obj_game.totalBlueBalls--;
+            }
         }
     }
 }
@@ -153,6 +195,7 @@ if(other.isBlue &amp;&amp; !isBlue)
             <kind>1</kind>
             <string>//draw_sprite(spr_ball,isBlue,x,y);
 draw_sprite_ext(spr_ball,isBlue,x,y,image_xscale,image_yscale,0,c_white,1);
+
 </string>
           </argument>
         </arguments>

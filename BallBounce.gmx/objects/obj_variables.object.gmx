@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>difficulty = "easy";
+global.stopped = false;
 </string>
           </argument>
         </arguments>

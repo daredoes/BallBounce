@@ -29,7 +29,7 @@
 switch(obj_variables.difficulty)
 {
     case "easy":
-    create_balls(16);
+    create_balls(8);
     break;
     case "medium":
     create_balls(12);
@@ -41,6 +41,33 @@ switch(obj_variables.difficulty)
 
 allGreen = false;
 touchable = false;
+gameTime = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>for(i=0; i &lt; array_length_1d(ballsInPlay);i++)
+{
+    ballsInPlay[i].stop = false;
+}
 </string>
           </argument>
         </arguments>
@@ -63,14 +90,7 @@ touchable = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(i = 0; i &lt; instance_number(obj_ball); i++)
-{
-    a = instance_find(obj_ball,i)
-    a.speed = 0;
-    a.vspeed = 0;
-    a.hspeed = 0;
-    
-}
+            <string>
 touchable = true;
 </string>
           </argument>
@@ -94,20 +114,67 @@ touchable = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(i = 0; i &lt; array_length_1d(ballsInPlay);i++)
+            <string>if(blueBalls = 0)
 {
-    if(ballsInPlay[i].isBlue)
+    touchable = true;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(alarm[1] &gt; -1)
+{
+    draw_set_font(fnt_countdown);
+    draw_set_color(c_white);
+    draw_set_halign(fa_center);
+    if(round(alarm[1]/30) != 0)
     {
-        break;
+        draw_text(room_width/2,room_height/4,string(round(alarm[1]/30)));
     }
-    if(i = array_length_1d(ballsInPlay)-1)
+    else
     {
-        allGreen = true;
+        draw_text(room_width/2,room_height/4,"GO!");
+    }
+    draw_set_color(c_black);
+    draw_set_font(fnt_default);
+}
+if(touchable)
+{
+    draw_set_color(c_white);
+    draw_set_font(fnt_countdown);
+    if(gameTime)
+    {
+        draw_text(room_width/2,room_height/2,"Balls Remaining: " + string(totalBlueBalls));
     }
 }
-if(blueBalls = 0)
+if(obj_ball.alarm[0] &gt; -1)
 {
-    alarm[0] = 30;
+    draw_set_font(fnt_countdown);
+    draw_set_color(c_white);
+    draw_set_halign(fa_center);
+    if(round(obj_ball.alarm[0]/30) != 0)
+    {
+        draw_text(room_width/2,room_height/4-128,"Balls Stopping In:");
+        draw_text(room_width/2,room_height/4,string(round(obj_ball.alarm[0]/30)));
+    }
 }
 </string>
           </argument>

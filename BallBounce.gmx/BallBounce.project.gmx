@@ -8,11 +8,17 @@
   <sprites name="sprites">
     <sprite>sprites\spr_ball</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\create_balls.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_default</font>
+    <font>fonts\fnt_countdown</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_main_menu</object>
     <object>objects\obj_game</object>
