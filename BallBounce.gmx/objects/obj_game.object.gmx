@@ -32,10 +32,10 @@ switch(obj_variables.difficulty)
     create_balls(8);
     break;
     case "medium":
-    create_balls(12);
+    create_balls(10);
     break;
     case "hard":
-    create_balls(16);
+    create_balls(12);
     break;
 }
 

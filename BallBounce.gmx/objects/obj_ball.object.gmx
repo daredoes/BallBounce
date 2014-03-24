@@ -81,12 +81,18 @@ obj_game.gameTime = true;
             <kind>1</kind>
             <string>if(x &lt;= 0 || x &gt; room_width-sprite_width-1)
 {
-    hspeed *= -1;
+    if(hspeed &lt; 0)
+    hspeed = abs(hspeed);
+    else
+    hspeed = -abs(hspeed);
     //direction += 90;
 }
 if(y &lt;= 0 || y &gt; room_height-sprite_height-1)
 {
-    vspeed *= -1;
+    if(vspeed &lt; 0)
+    vspeed = abs(vspeed);
+    else
+    vspeed = -abs(vspeed);
     //direction += 90;
 }
 if(stop &amp;&amp; obj_game.touchable = false)
