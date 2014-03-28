@@ -42,6 +42,7 @@ switch(obj_variables.difficulty)
 allGreen = false;
 touchable = false;
 gameTime = false;
+stepScore = 14;
 </string>
           </argument>
         </arguments>
@@ -140,18 +141,34 @@ touchable = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(alarm[1] &gt; -1)
+            <string>
+//Score Bar
+draw_set_color(c_black);
+draw_rectangle(0,0,room_width-1,120,0);
+draw_set_color(c_white);
+draw_rectangle(0,0,room_width-1,120,1);
+//Text Stuff
+draw_set_color(c_white);
+draw_set_font(fnt_default);
+draw_set_halign(fa_left);
+draw_set_valign(fa_middle);
+draw_set_font(fnt_topbar);
+draw_text(10,60,"Score: " + string(score));
+
+
+
+if(alarm[1] &gt; -1)
 {
     draw_set_font(fnt_countdown);
     draw_set_color(c_white);
     draw_set_halign(fa_center);
     if(round(alarm[1]/30) != 0)
     {
-        draw_text(room_width/2,room_height/4,string(round(alarm[1]/30)));
+        draw_text(room_width/2,60,string(round(alarm[1]/30)));
     }
     else
     {
-        draw_text(room_width/2,room_height/4,"GO!");
+        draw_text(room_width/2,60,"GO!");
     }
     draw_set_color(c_black);
     draw_set_font(fnt_default);
@@ -159,10 +176,14 @@ touchable = true;
 if(touchable)
 {
     draw_set_color(c_white);
-    draw_set_font(fnt_countdown);
+    draw_set_font(fnt_topbar);
     if(gameTime)
     {
-        draw_text(room_width/2,room_height/2,"Balls Remaining: " + string(totalBlueBalls));
+        if( totalBlueBalls != 0)
+        {
+            score += stepScore
+        }
+        draw_text(room_width/2,60,"Balls Remaining: " + string(totalBlueBalls));
     }
 }
 if(obj_ball.alarm[0] &gt; -1)
@@ -176,6 +197,7 @@ if(obj_ball.alarm[0] &gt; -1)
         draw_text(room_width/2,room_height/4,string(round(obj_ball.alarm[0]/30)));
     }
 }
+
 </string>
           </argument>
         </arguments>

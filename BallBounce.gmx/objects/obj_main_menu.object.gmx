@@ -27,9 +27,15 @@
             <kind>1</kind>
             <string>draw_text(room_width/2,room_height/8,"Bouncy Balls");
 
-if(draw_button_color("Play Game",c_red,c_black,60,240,room_width/2,room_height/2,c_black))
+if(draw_button_color("Play Game",c_black,c_white,60,240,room_width/2,room_height/2,c_white))
 {
     room = rm_game;
+}
+if(draw_button_color("How To Play",c_black,c_white,60,240,room_width/2,room_height/2+90,c_white))
+{
+}
+if(draw_button_color("High Scores", c_black,c_white,60,240,room_width/2,room_height/2+180,c_white))
+{
 }
 </string>
           </argument>

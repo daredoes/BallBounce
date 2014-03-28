@@ -19,6 +19,7 @@
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
     <font>fonts\fnt_countdown</font>
+    <font>fonts\fnt_topbar</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_main_menu</object>

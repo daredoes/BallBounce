@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>difficulty = "medium";
 global.stopped = false;
+global.combo = true;
+global.multiplier = 1;
 </string>
           </argument>
         </arguments>

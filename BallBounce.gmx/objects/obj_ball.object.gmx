@@ -87,7 +87,7 @@ obj_game.gameTime = true;
     hspeed = -abs(hspeed);
     //direction += 90;
 }
-if(y &lt;= 0 || y &gt; room_height-sprite_height-1)
+if(y &lt;= 120 || y &gt; room_height-sprite_height-1)
 {
     if(vspeed &lt; 0)
     vspeed = abs(vspeed);
@@ -114,13 +114,30 @@ if(obj_game.touchable = true)
     {
         if(mouse_check_button_pressed(mb_left) &amp;&amp; instance_position(mouse_x,mouse_y,obj_ball)==id)
         {
+            if(!wasBlue)
+            {
+                global.combo = false;
+                global.multiplier = 1;
+                score += 50000
+            }
             if(wasBlue)
             {
-                score += 100;
+                
+                if(global.combo = false)
+                {
+                    global.combo = true;
+                    
+                }
+                if(global.combo)
+                {
+                    score += 10000*global.multiplier
+                    global.multiplier -= .25;
+                }
                 isBlue = true;
                 wasBlue = false;
                 obj_game.totalBlueBalls--;
             }
+            
         }
     }
 }

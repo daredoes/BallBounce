@@ -7,7 +7,7 @@ startPoint = middle/blueBalls;
 increaseBy = startPoint;
 for(i = 0; i < amountOfBalls; i++)
     {
-        ballsInPlay[i] = instance_create(room_width/amountOfBalls * (i)+(room_width/amountOfBalls/4),32,obj_ball);
+        ballsInPlay[i] = instance_create(room_width/amountOfBalls * (i)+(room_width/amountOfBalls/4),32+120,obj_ball);
         ballsInPlay[i].stop = true;
         startPoint += increaseBy;
         
