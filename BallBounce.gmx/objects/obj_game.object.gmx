@@ -143,10 +143,12 @@ touchable = true;
             <kind>1</kind>
             <string>
 //Score Bar
+/*
 draw_set_color(c_black);
 draw_rectangle(0,0,room_width-1,120,0);
 draw_set_color(c_white);
 draw_rectangle(0,0,room_width-1,120,1);
+*/
 //Text Stuff
 draw_set_color(c_white);
 draw_set_font(fnt_default);
@@ -193,8 +195,8 @@ if(obj_ball.alarm[0] &gt; -1)
     draw_set_halign(fa_center);
     if(round(obj_ball.alarm[0]/30) != 0)
     {
-        draw_text(room_width/2,room_height/4-128,"Balls Stopping In:");
-        draw_text(room_width/2,room_height/4,string(round(obj_ball.alarm[0]/30)));
+        draw_text(room_width/2,room_height/2-128,"Balls Stopping In:");
+        draw_text(room_width/2,room_height/2,string(round(obj_ball.alarm[0]/30)));
     }
 }
 

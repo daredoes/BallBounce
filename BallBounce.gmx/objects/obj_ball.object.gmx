@@ -33,6 +33,7 @@ wasBlue = false;
 image_xscale = .25;
 image_yscale = .25;
 stop = false;
+touched = false;
 </string>
           </argument>
         </arguments>
@@ -101,7 +102,7 @@ if(stop &amp;&amp; obj_game.touchable = false)
 }
 if(!stop &amp;&amp; obj_game.touchable = false)
 {
-    speed = 5;
+    speed = 2.5;
 }
 if(obj_game.touchable = true)
 {
@@ -114,11 +115,14 @@ if(obj_game.touchable = true)
     {
         if(mouse_check_button_pressed(mb_left) &amp;&amp; instance_position(mouse_x,mouse_y,obj_ball)==id)
         {
+        if(!touched)
+        {
             if(!wasBlue)
             {
                 global.combo = false;
                 global.multiplier = 1;
                 score += 50000
+                touched = true;
             }
             if(wasBlue)
             {
@@ -136,8 +140,9 @@ if(obj_game.touchable = true)
                 isBlue = true;
                 wasBlue = false;
                 obj_game.totalBlueBalls--;
+                touched = true;
             }
-            
+        }    
         }
     }
 }
@@ -218,7 +223,10 @@ if(other.isBlue &amp;&amp; !isBlue)
             <kind>1</kind>
             <string>//draw_sprite(spr_ball,isBlue,x,y);
 draw_sprite_ext(spr_ball,isBlue,x,y,image_xscale,image_yscale,0,c_white,1);
-
+if(touched &amp;&amp; !isBlue)
+{
+    draw_sprite_ext(spr_x,0,x,y,image_xscale,image_yscale,0,c_white,1);
+}
 </string>
           </argument>
         </arguments>
